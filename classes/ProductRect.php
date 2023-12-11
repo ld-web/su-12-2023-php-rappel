@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "/Product.php";
 
-class ProductRect extends Product
+final class ProductRect extends Product
 {
     public function __construct(
         string $name,
@@ -11,6 +11,11 @@ class ProductRect extends Product
         private int $height
     ) {
         parent::__construct($name, $priceVatFree);
+    }
+
+    public function getSurface(): float
+    {
+        return $this->width * $this->height;
     }
 
     public function getWidth(): int

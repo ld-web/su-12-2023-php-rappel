@@ -1,12 +1,14 @@
 <?php
 
-class Product
+abstract class Product
 {
     public function __construct(
         protected string $name,
         protected float $priceVatFree
     ) {
     }
+
+    abstract public function getSurface(): float;
 
     public function getFullPrice(float $taxRate): float
     {
@@ -34,5 +36,10 @@ class Product
     {
         $this->priceVatFree = $priceVatFree;
         return $this;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 }
